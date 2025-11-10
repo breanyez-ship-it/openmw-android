@@ -84,6 +84,12 @@
             android:summary="%s"
             />
 
+        <CheckBoxPreference
+            android:key="pref_loadKTX"
+            android:title="Load KTX Textures"
+            android:summary="Load ASTC converted textures, need to convert them first in mod manager."
+            android:defaultValue="true"/>
+
     </PreferenceCategory>
 
     <PreferenceCategory android:title="@string/pref_graphics">

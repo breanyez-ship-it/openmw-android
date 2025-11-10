@@ -628,8 +628,10 @@ class MainActivity : AppCompatActivity() {
 
                 // openmw.cfg: data, resources
                 val gameVFS = "\"" + Constants.USER_FILE_STORAGE + "resources/vfs-mw\"\n"
+                val ktxFolder = if (prefs.getBoolean("pref_loadKTX", false) == true) "data=\"" + Constants.USER_FILE_STORAGE + "launcher/ktx\"\n" else ""
+
                 file.Writer.write(Constants.OPENMW_CFG, "resources", Constants.RESOURCES)
-                file.Writer.write(Constants.OPENMW_CFG, "data", gameVFS/* + "data=\"" + inst.findDataFiles() + "\""*/)
+                file.Writer.write(Constants.OPENMW_CFG, "data", gameVFS+ktxFolder/* + "data=\"" + inst.findDataFiles() + "\""*/)
 
                 file.Writer.write(Constants.OPENMW_CFG, "encoding", prefs!!.getString("pref_encoding", GameInstaller.DEFAULT_CHARSET_PREF)!!)
 
